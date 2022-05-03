@@ -1,0 +1,13 @@
+<!-- [class]=" showModalDelete? 'show' : 'hidden'" -->
+<div id="backdrop" [class]=" showModalDelete? 'show' : 'hidden'" >
+    <div id="modal">
+        <div class="center">
+            <h1>Sicuro di voler cancellare questa ricetta?</h1>
+        </div>
+        <div class="center">
+
+            <button type="button" (click)="recipeDelete()"><b>SI</b></button>
+            <button type="button" id="close" (click)="chiusuraModalDelete()"><b>CHIUDI</b></button>
+        </div>
+    </div>
+</div>

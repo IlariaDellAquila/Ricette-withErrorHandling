@@ -1,0 +1,28 @@
+<div id="backdrop" [class]=" showModal? 'show' : 'hidden'">
+    <div id="modal">
+        <div *ngIf="!ricetta">
+            <app-loader></app-loader>
+        </div>
+        <button type="button" id="close" (click)="chiusuraModal()"><b>X</b></button>
+        <div id="dettagli" *ngIf="ricetta" >
+            <div id="parteSx">
+                <h1>{{ricetta?.descrizione}}</h1>
+                <h3>Procedimento</h3>
+                <section>{{ricetta?.procedimento}}
+                </section>
+                <img class="img" *ngFor="let dettaglio of ricetta?.imgs" src="{{dettaglio}}">
+
+
+            </div>
+            <div id="parteDx">
+
+                <h4>Ingredienti:</h4>
+                <p *ngFor="let dettaglio of ricetta?.ingredienti">{{dettaglio?.quantita}} {{dettaglio?.descrizione}}</p>
+                <h4>Difficoltà:</h4><span>{{ricetta?.difficolta}}</span>
+
+            </div>
+            
+        </div>
+        <button (click)="modifica(ricetta?._id)" id="modifica"><b>Modifica</b></button>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+nav{
+ display: flex;
+ justify-content: center;
+}
+h4{
+        cursor:pointer;
+
+    margin-left: 50px;
+    margin-top: 25px;
+}
+
+
+

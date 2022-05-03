@@ -1,0 +1,23 @@
+<app-navbar (nuovaRicetta)="showModalForm()"></app-navbar>
+<app-background></app-background>
+<div id="grid">
+
+  <div *ngFor="let ricetta of ricette">
+    <app-ricetta [r]='ricetta' (dettaglio)="showDetail($event)" (eliminaRicetta)="showModalDele($event)" ></app-ricetta>
+  </div>
+</div>
+<div *ngIf="ricette.length === 0">
+  <app-loader></app-loader>
+</div>
+<div *ngIf="ricette.length > 0">
+  <app-modal [ricetta]="dettaglio" [showModal]="showModal" (chiudiModal)="closeModal()" (modificaRicetta)="modalModifica()"></app-modal>
+</div>
+<!-- <router-outlet></router-outlet> -->
+<app-add-ricetta  [showForm]="showForm" (chiudiInput)="closeInput()" (newRicetta)="addNewRicetta($event)" ></app-add-ricetta>
+<div *ngIf="dettaglio">
+<app-up-date [showFormMod]="showFormMod" [ricetta]="dettaglio"  (chiudiInput)="closeInput()" (upDate)="upDateRec($event)" ></app-up-date>
+</div>
+<app-delete [showModalDelete]="showModalDelete" (chiudiModalDelete)="closeDelete()" (recDelete)="deleteRec($event)" [idRicetta]="idDetail"></app-delete>
+<div *ngIf="error">
+<app-error-modal [errorMessage]="errMessage"></app-error-modal>
+</div>

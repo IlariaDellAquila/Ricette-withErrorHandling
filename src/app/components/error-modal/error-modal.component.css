@@ -1,0 +1,43 @@
+.hidden{
+    visibility: hidden;
+}
+.show{
+    visibility: visible;
+}
+#backdrop{
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.259);
+}
+
+#backdrop #modal{
+    width: 80%;
+    height: auto;
+    background-color: #111318;
+    margin: auto;
+    border-radius: 20px;
+    color: white;
+    padding: 30px;
+   
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+#close{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin: 20px;
+    border: 1px solid rgba(128, 128, 128, 0.255);
+    box-shadow: 1px 1px 1px 1px rgba(216, 208, 208, 0.219);
+    border-radius: 5px;
+    background-color: white;
+}

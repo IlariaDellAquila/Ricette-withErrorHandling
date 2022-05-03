@@ -1,0 +1,14 @@
+<div class="card">
+    <img class="immagini" src="{{ricetta?.img}}">
+
+    <div id="testo">
+        <h3>{{ricetta?.descrizione}}</h3>
+        <p><b>Difficoltà: </b>{{ricetta?.difficolta}}</p>
+    </div>
+    <div id="positionButton">
+        <button type="button" (click)="dettagli(ricetta?._id)"> <img class="icon"
+                src="https://cdn-icons-png.flaticon.com/512/103/103398.png"></button>
+        <button type="button" (click)="elimina(ricetta?._id)"><img class="icon"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8AAACTk5Pu7u7U1NQYGBhMTEzc3Nzx8fELCwvMzMxhYWH8/PyXl5elpaVHR0dycnK+vr7m5ubW1tatra0jIyNnZ2e4uLjGxsY+Pj4TExNcXFx/f383Nzf39/eoqKh6enoxMTEhISGMjIxCQkJVVVUqKiqdnZ2lVF/uAAAE9UlEQVR4nO2d6XKrMAxGTUOzELIv0CykW5r3f8M7bidF6WAWyyBz5zt/67F1AnVsYSKlWmOwXQ6/gmImb9fTKmtv7C5IFgY5wj6UjtKe6KXaTzNdS0dqyUc9P81KOlYb4mN9wSB4kg7XgmsTwT4qNrhFf+jbjZo0FQyCfk032a654V466EbcmgsGQa++F20Eg6N01A1IHyNPomLS7eOSIJaOuz6vJOxD6SQ5o4ZJV/Hxea//30UVl91E54DxJI/6VNX4nLf97CI4J4zIdRlVNb7kbXddBOeEsMnsQWalQxfBOSFqYkgaT3qzG4ahqTEM/YHONE0aTzqIrYRstLrM6kGXNI0aP9Xr/7ZN164v93i7D/xi95q6FJwfpIWKODtzDL300ywGTgS30h5luNg1N04pdQs/geX1FdRULu0rCKuHEGYy5hl6O8nk8HJ0c+nw68C5T8c9uIRBcGUY/plmXoaecH6Mi3ERH5ZqS4/S7uHDk9e5dT8Z7WbrMEAHLElo9qlkmlHyLdMXv+WxPVtvNFbE0KNb9AcanPVXIkn0vbgMzglrYmi9ACf56KHL4JwweM6j29h20htD6x0GDEWBYS1gKAoMawFDUWBYi94YWq/aSJbG75W39cYncdFJW9Ddk/XeYkM68XkHbJ8y/f+zGOrhIPPSzYMeF8SjTxrZzL6nP9nExdQPju6yiVkvMsKsb7In6ejrEHEM1XP1ANIwT0+n1SNIw50AvX/6xLtHNZ4/5XZxrtjrq8i/gpr0vXokGYbOVsuz6sEE+HJ58j320NHxyX6yzZh8zJ6EmJ1IGI7P7pFTJ/ZP6/iQbS/3lMlfqKHgHmMEQ3tg2BEwZADDjoAhAxj+kG3CCv1BGFYsidZhSepM2vA7b7UvMci+jwKW/XzCWr8ZvDMe3hY2vP8MjfEa3OM7Gz+Ee4LW9AxB1vD39Z5P09tcv4lc06uz+cLacBVFDcnghkcc5FGWYW+evwNleGFW1JA8AXgt7oOcxy3+DGKSnS2+1UUNSXp8WtwHOddbfKo3zhsYUkwwZABDGGpgCEMFQxYwhKEGhjBUMGQBQxhqYAhDBUMWMIShBoYwVDBkAUMYamAIQwVDFjCEoQaGMFQwZAFDGGpgCEMFQxYwhKEGhjBUMGQBQxhqYAhDBUMWMIShBoYwVDBkAUMYamAIQwVDFjCEoQaGMFQwZAFDGGpgCEMFQxYwhKEGhjBUMGQBQxhqYAhDBUMWMIShBoYwVDBkAUMYamAIQwVDFjCEoQaGMFQwZAFDGGr6bnjJWxjq4JBK7ZfCBtRwU9hC1JC0MFRzv+UtwuIW5DMoLickWytoeG9wMIyd/XZhqoYe/bYw1ISSNRzcGxjrUa3uLYxlfO8FpM+GvwtXtFpf9Z93JWWWo++iV9eSOsU/FYdOppJX0lXJ1GZ+S03lrL6J09u8eA65M05uF/MnIG7YOjBkAMOOgKGjrgUNyQf97rg8+CDv2lzBsX3meRTGKouWjImhqT5jB5DtydFx1/GZKJasWtplRoIwFfK05pV0fjCuPNuFbE5KVr+2RLT3YJpEXZNePh9CcD7fZc+BV1xdC/65ReQpX7/bIe30gCEVxCOpHrc7SraYDE7SWjltTebH6qG7oayyN4vYE8XWBFWeKRKl3fVGtKiOoF327UwyhETUcWrIJbtlsF0OvyZdu03erqeV9Z7wHza+lAsk9qbMAAAAAElFTkSuQmCC"></button>
+    </div>
+</div>

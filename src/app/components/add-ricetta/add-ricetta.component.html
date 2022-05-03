@@ -1,0 +1,121 @@
+<!-- [class]=" showForm? 'show' : 'hidden'" -->
+<div id="backdrop" [class]=" showForm? 'show' : 'hidden'">
+    <div id="modal">
+        <button type="button" id="close" (click)="chiusuraInput()"><b>X</b></button>
+        <h1>Nuova ricetta</h1>
+        <!-- <form #creationForm="ngForm" (ngSubmit)="createRecip(creationForm)">
+            <h1>Nuova ricetta</h1>
+            <div class="form-group">
+                <label for="descrizione"><b>Descrizione:</b></label>
+                <input required ngModel #descrizione="ngModel" name="descrizione" type="text" id="descrizione"
+                    class="form-control">
+                <div *ngIf="descrizione.touched && !descrizione.valid" class="alert alert-danger">
+                    Il campo descrizione è obbligatorio!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="difficolta"><b>Difficoltà:</b></label>
+                <input ngModel #difficolta="ngModel" name="difficolta" type="number" id="difficolta"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="img"><b>Immagine di copertina:</b></label>
+                <input ngModel #img="ngModel" name="img" type="text" id="img" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="imgs"><b>Altre immagini:</b></label>
+                <button [disabled]="imgToAdd.length === 0" (click)="addImage(imgToAdd)">Aggiungi immagine</button>
+                <input name="imgToAdd" type="text" [(ngModel)]="imgToAdd" />
+                <input *ngFor="let i of imgs" type="text" [value]="i" readonly />
+            </div>
+
+            <div class="form-group">
+                <label for="ingredienti"><b>Ingredienti:</b><br> </label>
+                <button [disabled]="descToAdd.length === 0" (click)="addIngredient(descToAdd, quantToAdd)">Aggiungi
+                    ingrediente</button>
+                <label for="descrizione">Descrizione</label>
+
+                <input name="descToAdd" [(ngModel)]="descToAdd" #descrizione="ngModel" type="text" id="descrizione"
+                    class="form-control">
+
+                <label for="quantita">Quantità</label>
+                <input [(ngModel)]="quantToAdd" #quantita="ngModel" name="quantToAdd" type="text" id="quantita"
+                    class="form-control">
+                <div *ngFor="let i of ingredienti">
+                    <input type="text" [value]="i?.descrizione" readonly />
+                    <input type="text" [value]="i?.quantita" readonly />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="procedimento"><b>Procedimento:</b></label>
+                <input ngModel #procedimento="ngModel" name="procedimento" type="text" id="procedimento"
+                    class="form-control">
+            </div>
+            <button [disabled]="!creationForm.valid" type="submit">Crea ricetta</button>
+        </form> -->
+        <form [formGroup]="form" (ngSubmit)="createRecip(form)">
+            <div class="form-group">
+                <label for="descrizione"><b>Descrizione:</b></label>
+                <input formControlName="descrizione" type="text" id="descrizione" class="form-control">
+                <div *ngIf="descrizione?.touched && descrizione?.invalid">
+                    Il campo è obbligatorio
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="difficolta"><b>Difficoltà:</b></label>
+                <input formControlName="difficolta" type="number" id="difficolta" class="form-control">
+                <div *ngIf="difficolta?.touched && difficolta?.invalid">
+                    Il campo è obbligatorio
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="img"><b>Immagine di copertina:</b></label>
+                <input formControlName="img" type="text" id="img" class="form-control">
+                <div *ngIf="img?.touched && img?.invalid">
+                    Il campo è obbligatorio
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="imgs"><b>Altre immagini:</b></label>
+                <input #images (keyup.enter)="addImages(images)" type="text" id="imgs" class="form-control">
+            </div>
+            <div id="images">
+                <div *ngFor="let i of imgs.controls" type="text" readonly>{{i.value}}</div>
+            </div>
+
+            <div class="form-group">
+                <label for="ingredienti"><b>Ingredienti</b><br> </label>
+                <button type="button" id="addIngredient"
+                    (click)="addIngredienti({value:{descrizione: descrizioneIngrediente?.value,quantita: quantitaIngrediente?.value}})"
+                    [disabled]="(!descrizioneIngrediente?.valid && descrizioneIngrediente?.untouched) && (!quantitaIngrediente?.valid && quantitaIngrediente?.untouched)"><b>Aggiungi
+                        ingrediente</b></button>
+            </div>
+            <div class="form-group1">
+                <label for="descrizione">Descrizione:</label>
+                <input formControlName="descrizioneIngrediente" name="descrizioneIngrediente" type="text"
+                    id="descrizioneIngrediente" class="form-control">
+
+                <label for="quantita">Quantità:</label>
+                <input formControlName="quantitaIngrediente" name="quantitaIngrediente" type="text"
+                    id="quantitaIngrediente" class="form-control"
+                >
+
+                <div id="scroll">
+                    <div *ngFor="let i of ingredienti.controls">
+                        <div id="ingredient"><b>{{i.value.descrizione}} - {{i.value.quantita}}</b></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="procedimento"><b>Procedimento:</b></label>
+                <input formControlName="procedimento" type="text" id="procedimento" class="form-control">
+                <div *ngIf="procedimento?.touched && procedimento?.invalid">
+                    Il campo è obbligatorio
+                </div>
+            </div>
+            <button id="newRecip" [disabled]="!form.valid" type="submit"><b>Crea ricetta</b></button>
+        </form>
+
+    </div>
+</div>

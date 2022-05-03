@@ -1,0 +1,56 @@
+<!-- [class]=" showFormMod? 'show' : 'hidden'" -->
+<div id="backdrop" [class]=" showFormMod? 'show' : 'hidden'">
+    <div id="modal">
+        <button type="button" id="close" (click)="chiusuraInput()"><b>X</b></button>
+        <form [formGroup]="upDateForm" *ngIf="ricetta" (ngSubmit)="upDateRecip(upDateForm)">
+            <h1>Aggiorna ricetta</h1>
+            <div class="form-group">
+                <label for="descrizione"><b>Descrizione:</b></label>
+                <input formControlName="descrizione" type="text" id="descrizione" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="difficolta"><b>Difficoltà:</b></label>
+                <input formControlName="difficolta" type="number" id="difficolta" class="form-control">
+
+            </div>
+            <div class="form-group">
+                <label for="img"><b>Immagine di copertina:</b></label>
+                <input formControlName="img" type="text" id="img" class="form-control">
+
+            </div>
+            <div id="images">
+                <div>
+
+                    <label for="imgs"><b>Altre immagini:</b></label>
+                </div>
+                <div>
+                    <div *ngFor="let i of upDateForm.get('imgs').controls; index as ind ; ">
+                        <input (input)="upD(ind, $event)" [value]="i.value" type="text" id="imgs" class="form-control">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ingredienti"><b>Ingredienti:</b><br> </label>
+
+            </div>
+            <div *ngFor="let f of upDateForm.get('ingredienti').controls; index as inde">
+
+                <label class="title" for="descrizione">Descrizione</label>
+                <input (input)="upDa(inde, $event)" [value]="f.value.descrizione" type="text"
+                    id="descrizioneIngrediente" class="form-control">
+
+                <label class="title" for="quantita">Quantità</label>
+                <input (input)="upDat(inde, $event)" [value]="f.value.quantita" type="text" id="quantitaIngrediente"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="procedimento"><b>Procedimento:</b></label>
+                <input formControlName="procedimento" type="text" id="procedimento" class="form-control">
+            </div>
+            <button id="upDate" type="submit"><b>Aggiorna ricetta</b></button>
+        </form>
+    </div>
+</div>

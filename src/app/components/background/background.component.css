@@ -1,0 +1,21 @@
+#img{
+    width: 95%;
+    height: 400px;
+    background: url('https://blog.giallozafferano.it/rossellainpadella/wp-content/uploads/2020/06/10-ricette-con-le-melanzane-facili-e-sfiziose-720x411.jpg');
+   
+}
+#title{
+    margin-top: 150px;
+    text-align: center;
+   justify-content: center;
+}
+#gradient{
+    width: 95%;
+    height: 403px;
+    position: absolute;
+    background-image: linear-gradient(to top right, #ffffff92 0%, #ffffff92 50%, #ffffff92 100%);
+}
+#position{
+    display: flex;
+    justify-content: center;
+}
